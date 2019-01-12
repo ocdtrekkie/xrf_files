@@ -16,11 +16,7 @@ echo "
 <a href=\"download.php?id=22\">SUPERAntiSpyware</a><br>
 <a href=\"download.php?id=23\">Process Explorer</a></p>
 
-<p align=\"left\"><a href=\"download.php?id=4\">TeamViewer Full (PC)</a><br>
-<a href=\"download.php?id=5\">TeamViewer Full (Mac)</a></p>
-
-<p align=\"left\"><a href=\"download.php?id=6\">TeamViewer QuickSupport (PC)</a><br>
-<a href=\"download.php?id=7\">TeamViewer QuickSupport (Mac)</a></p>
+<p align=\"left\"><a href=\"download.php?id=4\">TeamViewer</a></p>
 
 <p align=\"left\"><a href=\"download.php?id=2\">CoreFTP Lite</a></p>
 
