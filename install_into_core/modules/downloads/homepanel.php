@@ -2,7 +2,7 @@
 require("ismodule.php");
 $zquery="SELECT * FROM d_licenses WHERE uid = '$xrf_myid'";
 $zresult=mysql_query($zquery);
-$znum=mysql_numrows($zresult);
+$znum=mysql_num_rows($zresult);
 
 echo" <tr>
 <td>

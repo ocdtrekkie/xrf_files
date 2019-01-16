@@ -19,7 +19,7 @@ echo "<font size=5><b>Category: $cdesc</b></font>";
 
 $query="SELECT * FROM d_files WHERE cid='$cid' ORDER BY dlcount DESC, name ASC";
 $result=mysql_query($query);
-$num=mysql_numrows($result);
+$num=mysql_num_rows($result);
 
 $qq=0;
 while ($qq < $num) {

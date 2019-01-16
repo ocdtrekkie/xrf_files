@@ -62,7 +62,7 @@ function xrfd_count_files_in_cat($cid)
 {
 	$query="SELECT * FROM d_files WHERE cid='$cid'";
 	$result=mysql_query($query);
-	$num=mysql_numrows($result);
+	$num=mysql_num_rows($result);
 	return ($num);
 }
 

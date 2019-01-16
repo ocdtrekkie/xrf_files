@@ -53,7 +53,7 @@ else
 
 	$query="SELECT * FROM d_products ORDER BY name, id ASC";
 	$result=mysql_query($query);
-	$num=mysql_numrows($result);
+	$num=mysql_num_rows($result);
 	$qq=0;
 	while ($qq < $num) {
 		$p_id=mysql_result($result,$qq,"id");

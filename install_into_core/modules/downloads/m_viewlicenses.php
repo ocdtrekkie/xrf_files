@@ -4,7 +4,7 @@ echo "<p><b>Your Purchased Licenses</b><p>";
 
 $query="SELECT * FROM d_licenses WHERE uid = $xrf_myid";
 $result=mysql_query($query);
-$num=mysql_numrows($result);
+$num=mysql_num_rows($result);
 
 if ($num > 0)
 {

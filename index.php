@@ -24,7 +24,7 @@ echo "
 
 $query="SELECT * FROM d_categories ORDER BY descr ASC";
 $result=mysql_query($query);
-$num=mysql_numrows($result);
+$num=mysql_num_rows($result);
 
 $qq=0;
 while ($qq < $num) {
