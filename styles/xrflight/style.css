@@ -6,8 +6,13 @@ put the following code within the <head> tags of all the pages you want to imple
 (index.php, retrieve.php, gallery.php and request.php I believe)
 
 */
+
 body {
-        background: #FFFFFF;
+		background-image: url(images/bucky.jpg);
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
      	font-family: Verdana;
         color: #000;
 }

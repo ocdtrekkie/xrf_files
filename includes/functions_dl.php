@@ -2,12 +2,12 @@
 
 //Function xrfd_check_license
 //Use: Checks if the user is licensed for a particular product
-function xrfd_check_license($uid, $pid)
+function xrfd_check_license($xrf_db, $uid, $pid)
 {
 	$query="SELECT * FROM d_licenses WHERE uid='$uid' AND pid='$pid' ORDER BY id DESC";
-	$keycheck=mysql_query($query);
-	@$lic_key=mysql_result($keycheck,$kk,"lic_key");
-	@$expiry=mysql_result($keycheck,$kk,"expiry");
+	$keycheck=mysqli_query($xrf_db, $query);
+	@$lic_key=xrf_mysql_result($keycheck,$kk,"lic_key");
+	@$expiry=xrf_mysql_result($keycheck,$kk,"expiry");
 	if ($lic_key != "" && ((strtotime($expiry) > time()) || $expiry == "0"))
 		return (1);
 	else
@@ -58,11 +58,11 @@ function xrfd_clean_filesize($bytes)
 
 //Function xrfd_count_files_in_cat
 //Use: Gets the number of files in a particular category
-function xrfd_count_files_in_cat($cid)
+function xrfd_count_files_in_cat($xrf_db, $cid)
 {
 	$query="SELECT * FROM d_files WHERE cid='$cid'";
-	$result=mysql_query($query);
-	$num=mysql_num_rows($result);
+	$result=mysqli_query($xrf_db, $query);
+	$num=mysqli_num_rows($result);
 	return ($num);
 }
 

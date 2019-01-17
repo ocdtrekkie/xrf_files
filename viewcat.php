@@ -7,40 +7,40 @@ require_once("includes/header.php");
 $id = $_GET['id'];
 $id=(int)$id;
 $query="SELECT * FROM d_categories WHERE id='$id'";
-$result=mysql_query($query);
-$cid=mysql_result($result,$qq,"id");
-$cdesc=mysql_result($result,$qq,"descr");
-$cpriv=mysql_result($result,$qq,"private");
+$result=mysqli_query($xrf_db, $query);
+$cid=xrf_mysql_result($result,$qq,"id");
+$cdesc=xrf_mysql_result($result,$qq,"descr");
+$cpriv=xrf_mysql_result($result,$qq,"private");
 
-if ($cprive == 0 || ($cpriv == 1 && $xrf_myid != 0))
+if ($cpriv == 0 || ($cpriv == 1 && $xrf_myid != 0))
 {
 
 echo "<font size=5><b>Category: $cdesc</b></font>";
 
 $query="SELECT * FROM d_files WHERE cid='$cid' ORDER BY dlcount DESC, name ASC";
-$result=mysql_query($query);
-$num=mysql_num_rows($result);
+$result=mysqli_query($xrf_db, $query);
+$num=mysqli_num_rows($result);
 
 $qq=0;
 while ($qq < $num) {
 
 $key = "";
 $authed = 0;
-$fid=mysql_result($result,$qq,"id");
-$fname=mysql_result($result,$qq,"name");
-$fver=mysql_result($result,$qq,"version");
-$fauth=mysql_result($result,$qq,"author");
-$fdesc=mysql_result($result,$qq,"descr");
-$ficon=mysql_result($result,$qq,"iconname");
-$fsize=mysql_result($result,$qq,"filesize");
-$fpriv=mysql_result($result,$qq,"private");
-$fpid=mysql_result($result,$qq,"pid");
-$fcount=mysql_result($result,$qq,"dlcount");
+$fid=xrf_mysql_result($result,$qq,"id");
+$fname=xrf_mysql_result($result,$qq,"name");
+$fver=xrf_mysql_result($result,$qq,"version");
+$fauth=xrf_mysql_result($result,$qq,"author");
+$fdesc=xrf_mysql_result($result,$qq,"descr");
+$ficon=xrf_mysql_result($result,$qq,"iconname");
+$fsize=xrf_mysql_result($result,$qq,"filesize");
+$fpriv=xrf_mysql_result($result,$qq,"private");
+$fpid=xrf_mysql_result($result,$qq,"pid");
+$fcount=xrf_mysql_result($result,$qq,"dlcount");
 $fdesc=xrf_bbcode_format($fdesc);
 
 if ($fpriv == 2)
 {
-	$authed = xrfd_check_license($xrf_myid, $fpid);
+	$authed = xrfd_check_license($xrf_db, $xrf_myid, $fpid);
 }
 
 if ($fpriv == 0 || ($fpriv == 1 && $xrf_myid != 0) || ($fpriv == 2 && $authed == 1))
